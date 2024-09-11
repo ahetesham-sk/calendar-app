@@ -1,0 +1,38 @@
+
+<div class="container py-4">
+  <div class="row">
+    <div class="col-md-12">
+      <h3>FullCalendar Demo</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-9 border py-3">
+      <full-calendar [options]="calendarOptions"></full-calendar>
+    </div>
+    <div class="col-lg-3">
+      <button class="btn btn-primary btn-sm" (click)="toggleDiv()">Add New Event</button> &nbsp;
+      <button class="btn btn-danger btn-sm" (click)="deleteAllEvents()">Delete All Event</button>
+      <div class="row mt-5 bg-light p-2" *ngIf="showNewEventDiv">
+        <div class="col-md-12">
+          <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+            <div>
+              <label for="name">Event Title:</label>
+              <input type="text" class="form-control mb-3" placeholder="Event Title" formControlName="title">
+            </div>
+            <div>
+              <label for="name">Start Date & Time:</label>
+              <input type="datetime-local" class="form-control mb-3" placeholder="Start Time" formControlName="startTime">
+            </div>
+            <div>
+              <label for="name">End Date & Time:</label>
+              <input type="datetime-local" class="form-control mb-3" placeholder="End Time" formControlName="endTime">
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
